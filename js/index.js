@@ -13,7 +13,7 @@ function buscarProductos(codigo) {
     return resultado 
 }
 
-function compraFinalizada() {
+function finalizarCompra() {
     const totalCompras = new Compra(carrito)
     alert('El costo total de tu compra es $ ' + totalCompras.obtenerPrecio() )
 }
@@ -26,22 +26,13 @@ function hacerPedido() {
         alert(productoElegido.tipo + ' se agregó al carrito.')
         let respuesta = confirm("¿Deseas agregar otro producto?")
         if (respuesta === true) {
-            let codigo = prompt("Ingresa el código numerico del producto que deseas agregar")
-            let productoElegido = buscarProductos(codigo)
-            if (productoElegido !== undefined) {
-                carrito.push(productoElegido)
-                alert(productoElegido.tipo + ' se agregó al carrito.')
-            }
-            let respuesta = confirm("¿Deseas agregar otro producto?")
-            if (respuesta === true) {
-                hacerPedido()}
-            else {
-                compraFinalizada()
-            }
+            hacerPedido()
+        } else {
+            finalizarCompra()
         }
-
+    } else {
+        alert('Error en el código ingresado. Refresca, para comenzar de nuevo.')
     }
-
+    
 }
 hacerPedido()
-
