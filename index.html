@@ -2,29 +2,31 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tu desayuno online</title>
+    <title>Tu desayuno oline Ramiro</title>
+    <link rel="shortcut icon" href="images/teclab_logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/clothes.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/class.compra.js"></script>
+    <script src="js/productos.js"></script>
     <script defer src="js/index.js"></script>
 </head>
 <body>
-    <h1>Bienvenido!!</h1>
-    <h2>Tu desayuno online</h2>
-    <ol>
-        <li>Cafe espresso, $150.</li>
-        <li>Cafe cortado, $220.</li>
-        <li>Cafe americano, $200.</li>
-        <li>Cafe latte, $220</li>
-        <li>Cappuccino, $250</li>        
-        <li>Medialunas, $100.</li>
-        <li>Donas, $120.</li>
-        <li>Tostado, $150.</li>
-    </ol>
-
-        <div>
-            <p>Bienvenido para comenzar la compra ejecuta la función<strong>hacerPedido()</strong>en la consola</p>
-        </div>
-    </main>
+    <h1>Tu desayuno online Ramiro</h1>
+    <hr>
+    <p>Selecciona tu(s) producto(s) de interés. Guárdalos en el Carrito o en tus Favoritos.</p>
+    <input type="search" id="inputSearch" placeholder="🔍 Nombre del producto a buscar">
+    <div class="toast-msg"></div>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Imagen</th>
+                <th>Descripción</th>
+                <th>importe</th>
+                <th>Favs</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </html>

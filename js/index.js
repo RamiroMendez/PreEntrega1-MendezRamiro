@@ -1,38 +1,42 @@
-const carrito = []
-const productos = [{ codigo: 1, tipo: 'Cafe espresso', precio: 150},
-                 { codigo: 2, tipo: 'Cafe cortado', precio: 220},
-                 { codigo: 3, tipo: 'Cafe americano', precio: 200},
-                 { codigo: 4, tipo: 'Cafe late', precio: 220},
-                 { codigo: 5, tipo: 'Capuccino', precio: 250},
-                 { codigo: 6, tipo: 'Medialunas', precio: 100},
-                 { codigo: 7, tipo: 'Donas', precio: 120},                
-                 { codigo: 8, tipo: 'Tostado', precio: 150}]
+const tableBody = document.querySelector('tbody')
+const inputSearch = document.querySelector('input#inputSearch')
 
-function buscarProductos(codigo) {
-    let resultado = productos.find((producto)=> producto.codigo === parseInt(codigo) )
-    return resultado 
+const armarFilaHTML = (prod)=> {
+    return `<tr>
+                <td class="class-table-number">${prod.id}</td>
+                <td class="emoji-image">${prod.imagen}</td>
+                <td>${prod.nombre}</td>
+                <td>$ ${prod.precio}</td>
+                <td><button id="${prod.id}" class="button button-outline button-big-emoji">🤍</button></td>
+            </tr>`
 }
 
-function finalizarCompra() {
-    const totalCompras = new Compra(carrito)
-    alert('El costo total de tu compra es $ ' + totalCompras.obtenerPrecio() )
-}
-
-function hacerPedido() {
-    let codigo = prompt("Ingresa el código numerico del producto que deseas comprar")
-    let productoElegido = buscarProductos(codigo)
-    if (productoElegido !== undefined) {
-        carrito.push(productoElegido)
-        alert(productoElegido.tipo + ' se agregó al carrito.')
-        let respuesta = confirm("¿Deseas agregar otro producto?")
-        if (respuesta === true) {
-            hacerPedido()
-        } else {
-            finalizarCompra()
-        }
-    } else {
-        alert('Error en el código ingresado. Refresca, para comenzar de nuevo.')
+const filtrarProductos = ()=> {
+    let arrayResultado = productosDesayuno.filter((producto)=> producto.nombre.toLowerCase().includes(inputSearch.value.trim().toLowerCase()))
+    if (arrayResultado.length > 0) {
+        cargarProductos(arrayResultado)
     }
-    
 }
-hacerPedido()
+inputSearch.addEventListener('search', filtrarProductos)
+
+const cargarProductos = (array)=> {
+    tableBody.innerHTML = ''
+    array.forEach((producto) => {
+        tableBody.innerHTML += armarFilaHTML(producto)
+    })
+    activarClickEnBotonesFav()
+}
+
+const activarClickEnBotonesFav = ()=> {
+    const botonesFav = document.querySelectorAll('button.button.button-outline.button-big-emoji')
+    for (let botonFav of botonesFav) {
+        botonFav.addEventListener('click', ()=> {
+            let resultadoProducto = productosDesayuno.find((prod)=> prod.id === parseInt(botonFav.id))
+            favoritos.push(resultadoProducto)
+            guardarEnLocalStorage()
+            mostrarMensajes(`El producto ${resultadoProducto.nombre} se guardó en favoritos...`, 'green')
+        })
+    }
+}
+
+cargarProductos(productosDesayuno)
