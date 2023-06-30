@@ -9,21 +9,24 @@ const productosDesayuno = [
     { id: 8, imagen: "🫓", nombre: "Tostado", precio: 150, categoria: "Merienda" }
 ]
 
-const guardarEnLocalStorage = ()=> {
-    if (favoritos.length > 0) {
-        localStorage.setItem('Favoritos', JSON.stringify(favoritos))
+
+const guardarEnLocalStorageCompras = ()=> {
+    if (comprar.length > 0) {
+        localStorage.setItem('Comprar', JSON.stringify(comprar))
     }
+
 }
 
-const recuperarFavsDeLocalStorage = ()=> {
-    if (localStorage.getItem('Favoritos')) {
-        return JSON.parse(localStorage.getItem('Favoritos'))
-    } else {
+const recuperarComprasDeLocalStorage = ()=> {
+    if (localStorage.getItem('Comprar')) {
+        return JSON.parse(localStorage.getItem('Comprar'))
+    }else {
         return []
     }
 }
 
-const favoritos = recuperarFavsDeLocalStorage()
+const comprar = recuperarComprasDeLocalStorage()
+
 
 const mostrarMensajes = (msg, bgcolor)=> {
     const divMsg = document.querySelector('div.toast-msg')
