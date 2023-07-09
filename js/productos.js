@@ -4,9 +4,11 @@ const productosDesayuno = [
     { id: 3, imagen: "☕", nombre: "Cafe americano", precio: 220, categoria: "Bebida" },
     { id: 4, imagen: "☕", nombre: "Cafe late", precio: 220, categoria: "Bebibda" },
     { id: 5, imagen: "☕", nombre: "Capuccino", precio: 250, categoria: "Bebida" },
-    { id: 6, imagen: "🥐", nombre: "Medialunas", precio: 100, categoria: "Merienda" },
-    { id: 7, imagen: "🥯", nombre: "Donas", precio: 120, categoria: "Merienda" },
-    { id: 8, imagen: "🫓", nombre: "Tostado", precio: 150, categoria: "Merienda" }
+    { id: 6, imagen: "🧋", nombre: "Te", precio: 100, categoria: "Bebida"},
+    { id: 7, imagen: "🧋", nombre: "Jugo de naranja", precio: 100, categoria: "Bebida"},
+    { id: 8, imagen: "🥐", nombre: "Medialunas", precio: 100, categoria: "Merienda" },
+    { id: 9, imagen: "🥯", nombre: "Donas", precio: 120, categoria: "Merienda" },
+    { id: 10, imagen: "🫓", nombre: "Tostado", precio: 150, categoria: "Merienda" }
 ]
 
 
